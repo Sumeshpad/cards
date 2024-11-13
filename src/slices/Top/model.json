@@ -1,0 +1,107 @@
+{
+  "id": "top",
+  "type": "SharedSlice",
+  "name": "Top",
+  "description": "Top",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "card": {
+          "type": "Group",
+          "config": {
+            "label": "Card",
+            "repeat": true,
+            "fields": {
+              "availability": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Availability",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": true
+                }
+              },
+              "cardheading": {
+                "type": "Text",
+                "config": {
+                  "label": "cardheading",
+                  "placeholder": ""
+                }
+              },
+              "number_available_games": {
+                "type": "Text",
+                "config": {
+                  "label": "Number_available_games",
+                  "placeholder": ""
+                }
+              },
+              "games_available": {
+                "type": "Text",
+                "config": {
+                  "label": "Games available",
+                  "placeholder": ""
+                }
+              },
+              "number_consoles": {
+                "type": "Text",
+                "config": {
+                  "label": "number_consoles",
+                  "placeholder": ""
+                }
+              },
+              "consoles_available": {
+                "type": "Text",
+                "config": {
+                  "label": "consoles available",
+                  "placeholder": ""
+                }
+              },
+              "button": {
+                "type": "Link",
+                "config": {
+                  "label": "button",
+                  "placeholder": "",
+                  "allowTargetBlank": false,
+                  "select": null,
+                  "allowText": true
+                }
+              },
+              "book_a_call": {
+                "type": "Link",
+                "config": {
+                  "label": "book a call",
+                  "placeholder": "",
+                  "allowTargetBlank": false,
+                  "select": null,
+                  "allowText": true
+                }
+              },
+              "controller_image": {
+                "type": "Image",
+                "config": {
+                  "label": "controller_image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
