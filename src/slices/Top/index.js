@@ -4,6 +4,9 @@
  * @param {TopProps}
  */
 import { PrismicNextLink, PrismicNextImage } from '@prismicio/next';
+import { PrismicLink } from '@prismicio/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
 const Top = ({ slice }) => {
   
   console.log(slice.primary);
@@ -38,14 +41,14 @@ const Top = ({ slice }) => {
               <span className="text-sm max-w-[120px] leading-4 " >Consoles Available</span>
             </div>
           </div>
-          <PrismicNextLink field={card.button} className="w-full block">
+          <PrismicLink field={card.button} className="w-full block">
             <button className="w-full bg-white text-black py-4 rounded-full transition-all duration-100 hover:bg-amber-200">Rent now for {card.button.text}</button>
-          </PrismicNextLink>
-          <PrismicNextLink field={card.book_a_call} className="w-full block">
+          </PrismicLink>
+          <PrismicLink  href="tel:123456789" className="w-full block">
             <p className="text-center mt-4 text-gray-300 underline cursor-pointer">
               or book with a call
             </p>
-          </PrismicNextLink>
+          </PrismicLink>
           <div className="my-6 mb-0 relative">
             <PrismicNextImage field={card.controller_image} className="w-60 h-40  -mb-10 transform transition-transform duration-300 group-hover:-translate-y-2" />
           </div>
