@@ -12,21 +12,21 @@ const Top = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}>
 
-<section className="bg-black py-8">
-  <div className="container mx-auto px-24 md:px-24 lg:px-24">
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+<section className="bg-black h-screen">
+
+    <div className="flex flex-wrap w-full justify-center py-16 gap-6 ">
       {slice.primary.card.map((card, index) => (
         <div
           key={index}
-          className=" max-w-full bg-neutral-700 text-white shadow-lg  p-6 md:max-w-full flex flex-col justify-center items-center"
+          className=" w-[280px]  bg-neutral-700 text-white shadow-lg  p-6 md:max-w-full flex flex-col justify-center items-center relative group transition-all duration-300 hover:bg-gradient-to-b hover:from-neutral-700 hover:to-purple-700"
         >
           <div className="flex mb-4">
             <span className={`text-sm ${card.availability ? 'text-green-400' : 'text-red-400'}`}>
               {card.availability ? 'Available' : 'Unavailable'}
             </span>
           </div>
-          <h2 className="text-3xl font-bold mb-2 text-center">{card.cardheading}</h2>
-          <div className="flex justify-between mb-4">
+          <h2 className="text-3xl font-bold mb-4 text-center">{card.cardheading}</h2>
+          <div className="flex justify-between mb-6  text-center">
             <div>
               <span className="text-2xl font-semibold">{card.number_available_games}</span>
               <span className="text-sm">{card.games_available}</span>
@@ -37,20 +37,20 @@ const Top = ({ slice }) => {
             </div>
           </div>
           <PrismicNextLink field={card.button} className="w-full block">
-            <button className="w-full bg-white text-black py-2 rounded-full">{card.button.text}</button>
+            <button className="w-full bg-white text-black py-4 rounded-full">{card.button.text}</button>
           </PrismicNextLink>
           <PrismicNextLink field={card.book_a_call} className="w-full block">
             <p className="text-center mt-4 text-gray-300 underline cursor-pointer">
               {card.book_a_call.text}
             </p>
           </PrismicNextLink>
-          <div className="mt-4">
-            <PrismicNextImage field={card.controller_image} className="w-full object-contain h-40 mx-auto" />
+          <div className="my-6 mb-0 relative">
+            <PrismicNextImage field={card.controller_image} className="w-60 h-40  -mb-6 transform transition-transform duration-300 group-hover:-translate-y-2" />
           </div>
         </div>
       ))}
     </div>
-  </div>
+  
 </section>
 
 
