@@ -48,24 +48,10 @@
                   "placeholder": ""
                 }
               },
-              "games_available": {
-                "type": "Text",
-                "config": {
-                  "label": "Games available",
-                  "placeholder": ""
-                }
-              },
               "number_consoles": {
                 "type": "Text",
                 "config": {
                   "label": "number_consoles",
-                  "placeholder": ""
-                }
-              },
-              "consoles_available": {
-                "type": "Text",
-                "config": {
-                  "label": "consoles available",
                   "placeholder": ""
                 }
               },

@@ -103,16 +103,6 @@ export interface TopSliceDefaultPrimaryCardItem {
   number_available_games: prismic.KeyTextField;
 
   /**
-   * Games available field in *Top → Default → Primary → Card*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: top.default.primary.card[].games_available
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  games_available: prismic.KeyTextField;
-
-  /**
    * number_consoles field in *Top → Default → Primary → Card*
    *
    * - **Field Type**: Text
@@ -121,16 +111,6 @@ export interface TopSliceDefaultPrimaryCardItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   number_consoles: prismic.KeyTextField;
-
-  /**
-   * consoles available field in *Top → Default → Primary → Card*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: top.default.primary.card[].consoles_available
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  consoles_available: prismic.KeyTextField;
 
   /**
    * button field in *Top → Default → Primary → Card*

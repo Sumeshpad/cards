@@ -38,26 +38,10 @@
 								}
 							],
 							[
-								"games_available",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "arrange",
-									"type": "Text"
-								}
-							],
-							[
 								"number_consoles",
 								{
 									"__TYPE__": "FieldContent",
 									"value": "bark",
-									"type": "Text"
-								}
-							],
-							[
-								"consoles_available",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "salmon",
 									"type": "Text"
 								}
 							],
