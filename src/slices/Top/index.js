@@ -12,13 +12,13 @@ const Top = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}>
 
-<section className="bg-black h-screen">
+<section className="bg-black h-full  py-44">
 
     <div className="flex flex-wrap w-full justify-center py-16 gap-6 ">
       {slice.primary.card.map((card, index) => (
         <div
           key={index}
-          className=" w-[280px]  bg-neutral-700 text-white shadow-lg  p-6 md:max-w-full flex flex-col justify-center items-center relative group transition-all duration-300 hover:bg-gradient-to-b hover:from-neutral-700 hover:to-purple-700"
+          className=" w-[280px]  bg-neutral-700 text-white shadow-lg  p-6 md:max-w-full flex flex-col justify-center items-center relative group transition-all duration-100 hover:bg-gradient-to-b hover:from-neutral-700 hover:to-purple-700  hover:border-1 hover:border-purple-700"
         >
           <div className="flex mb-4">
             <span className={`text-sm ${card.availability ? 'text-green-400' : 'text-red-400'}`}>
