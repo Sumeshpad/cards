@@ -1,34 +1,41 @@
-'use client';
 /**
  * @typedef {import("@prismicio/client").Content.TopSlice} TopSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<TopSlice>} TopProps
  * @param {TopProps}
  */
+'use client';
+
 import { PrismicNextImage } from '@prismicio/next';
 import { PrismicLink } from '@prismicio/react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-
+import { Pagination } from 'swiper/modules';
 
 const Top = ({ slice }) => {
-  console.log(slice.primary);
+  
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
     <section data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
       <section className="bg-black h-full py-44">
- 
-        <div className="block md:hidden max-w-[300px] ">
+        {/*for Mobile View */}
+        <div className="block md:hidden">
           <Swiper
-            
+            slidesPerView={1.2}
             spaceBetween={16}
-            
+            pagination={{ clickable: true }}
+            onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
             
             className="mySwiper"
           >
             {slice.primary.card.map((card, index) => (
-              <SwiperSlide key={index}>
+              <SwiperSlide key={index} className='w-[300px]'>
                 <div
-                  className="w-full bg-neutral-700 text-white shadow-lg border border-transparent p-10 flex flex-col justify-center items-center relative group transition-all duration-100 hover:bg-gradient-to-b hover:from-neutral-700 hover:to-purple-700 hover:border hover:border-purple-700"
+                  className={`  bg-neutral-700 text-white shadow-lg border border-transparent p-10 flex flex-col justify-center items-center relative group transition-all duration-100 ${
+                    index === activeIndex ? '  group transition-all duration-100 border-purple-500 bg-gradient-to-b from-neutral-700 to-purple-700 ' : ''
+                  }`}
                 >
                   <div className="flex mb-4">
                     <span
@@ -40,9 +47,7 @@ const Top = ({ slice }) => {
                   <h2 className="text-2xl font-bold mb-6 text-center">{card.cardheading}</h2>
                   <div className="flex mb-10 text-center">
                     <div className="flex items-center gap-2 mx-4">
-                      <span className="text-2xl font-semibold">
-                        {card.number_available_games}
-                      </span>
+                      <span className="text-2xl font-semibold">{card.number_available_games}</span>
                       <span className="text-sm max-w-[120px] leading-4">Games Available</span>
                     </div>
                     <span className="h-[40px] w-[2px] bg-white"></span>
@@ -64,7 +69,9 @@ const Top = ({ slice }) => {
                   <div className="my-6 mb-0 relative">
                     <PrismicNextImage
                       field={card.controller_image}
-                      className="w-60 h-40 -mb-10 transform transition-transform duration-300 group-hover:-translate-y-2"
+                      className={`w-60 h-40 -mb-10 transform transition-transform duration-300  ${ 
+                        index === activeIndex ? '  -translate-y-2 ' : ''
+                      }`}
                     />
                   </div>
                 </div>
@@ -73,6 +80,7 @@ const Top = ({ slice }) => {
           </Swiper>
         </div>
 
+        {/* Large Screen */}
         <div className="hidden md:flex md:flex-wrap w-full md:justify-center lg:justify-center py-16 gap-6">
           {slice.primary.card.map((card, index) => (
             <div
@@ -89,9 +97,7 @@ const Top = ({ slice }) => {
               <h2 className="text-2xl font-bold mb-6 text-center">{card.cardheading}</h2>
               <div className="flex mb-10 text-center">
                 <div className="flex items-center gap-2 mx-4">
-                  <span className="text-2xl font-semibold">
-                    {card.number_available_games}
-                  </span>
+                  <span className="text-2xl font-semibold">{card.number_available_games}</span>
                   <span className="text-sm max-w-[120px] leading-4">Games Available</span>
                 </div>
                 <span className="h-[40px] w-[2px] bg-white"></span>
@@ -113,7 +119,9 @@ const Top = ({ slice }) => {
               <div className="my-6 mb-0 relative">
                 <PrismicNextImage
                   field={card.controller_image}
-                  className="w-60 h-40 -mb-10 transform transition-transform duration-300 group-hover:-translate-y-2"
+                  className={`w-60 h-40 -mb-10 transform transition-transform duration-300 ${
+                    index === activeIndex ? 'translate-y-0' : '-translate-y-2'
+                  }`}
                 />
               </div>
             </div>
