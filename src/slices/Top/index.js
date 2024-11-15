@@ -11,11 +11,16 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Pagination } from 'swiper/modules';
 
 const Top = ({ slice }) => {
   
   const [activeIndex, setActiveIndex] = useState(0);
+const [progress ,setProgress] =useState(0);
+ const onChange = (swiper)=>{
+  setActiveIndex(swiper.activeIndex)
+const newProgress = ((swiper.activeIndex)/(swiper.slides.length-1)*100);
+setProgress(newProgress)
+ }
 
   return (
     <section data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
@@ -26,8 +31,8 @@ const Top = ({ slice }) => {
             slidesPerView={1.2}
             spaceBetween={16}
             pagination={{ clickable: true }}
-            onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-            
+            onSlideChange={onChange}
+           
             className="mySwiper"
           >
             {slice.primary.card.map((card, index) => (
@@ -77,6 +82,9 @@ const Top = ({ slice }) => {
                 </div>
               </SwiperSlide>
             ))}
+            <div>
+              <div className="bg-purple-400 h-2 rounded-full " style={{width:`${progress}%`}}></div>
+            </div>
           </Swiper>
         </div>
 
@@ -119,9 +127,7 @@ const Top = ({ slice }) => {
               <div className="my-6 mb-0 relative">
                 <PrismicNextImage
                   field={card.controller_image}
-                  className={`w-60 h-40 -mb-10 transform transition-transform duration-300 ${
-                    index === activeIndex ? 'translate-y-0' : '-translate-y-2'
-                  }`}
+                  className="w-60 h-40 -mb-10 transform transition-transform duration-300 group-hover:-translate-y-2"
                 />
               </div>
             </div>
