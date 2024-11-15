@@ -17,10 +17,12 @@ const Top = ({ slice }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 const [progress ,setProgress] =useState(0);
  const onChange = (swiper)=>{
+
   setActiveIndex(swiper.activeIndex)
 const newProgress = ((swiper.activeIndex)/(swiper.slides.length-1)*100);
 setProgress(newProgress)
  }
+
 
   return (
     <section data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
@@ -83,7 +85,9 @@ setProgress(newProgress)
               </SwiperSlide>
             ))}
             <div>
-              <div className="bg-purple-400 h-2 rounded-full " style={{width:`${progress}%`}}></div>
+            {/* <div className={`bg-purple-400 h-2 rounded-full ${progress? `w-[${progress}%]` : `w-[10%]`}`} ></div> */}
+              {/* <div className="bg-purple-400 h-2 rounded-full " style={{width:`${progress}%`}}></div> */}
+              <div className="bg-purple-400 h-2 rounded-full " style={{width:`${activeIndex=== 0 ? `10%`:`${progress}%` }`}}></div> 
             </div>
           </Swiper>
         </div>
